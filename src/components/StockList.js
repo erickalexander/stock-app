@@ -10,14 +10,16 @@ const StockList = (props) =>
       props.stocks ? props.stocks.map(st =>{
         console.log('st',st);
         let symbol = st["Meta Data"]["2. Symbol"]
-        let currentDate = st["Meta Data"]["3. Last Refreshed"]
+        // fixed currentDate bug, the API changes after market closes "3. Last Refreshed" only shows the date, but when market is open it shows both date and time, did the follwoing to fix it...
+        let currentDate = st["Meta Data"]["3. Last Refreshed"].split(" ")[0]
         let lastPrice = st["Time Series (Daily)"]
         let openPrice = lastPrice[currentDate]["1. open"]
         let closePrice = lastPrice[currentDate]["4. close"]
-
+        // ----- debugging ------------------
         console.log('ccc',);
         console.log('jjj', symbol);
-        console.log(currentDate);
+        console.log('currentd',currentDate);
+        //-----------------------------------
         return (
           <div>
           <h1>{symbol}</h1>

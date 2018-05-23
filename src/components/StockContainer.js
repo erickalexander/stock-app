@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Adapter from '../api/Adapter'
 import StockList from './StockList'
-
 export default class StockContainer extends React.Component{
   constructor(props){
     super(props);
@@ -10,6 +9,8 @@ export default class StockContainer extends React.Component{
       stocks:[],
     }
   }
+
+ // This is the place where we load the data we get from an API, to be used throughout components by setting state
   componentDidMount(){
     Adapter.getStocks().then(res =>{
       console.log('cool',res);
@@ -30,10 +31,21 @@ export default class StockContainer extends React.Component{
       )
     }
 }
-// let newStocks = []
-//   Adapter.getStocks().map(stock => {
-//     stock.then(stocknew => newStocks.push(stocknew))
-//     this.setState({
-//       stocks: newStocks
-//     })
-//   })
+
+// code to make request every 3 seconds, will se live updates:
+// ------------------------------------------------------------
+// async componentDidMount() {
+//          try {
+//            setInterval(async () => {
+//              Adapter.getStocks().then(res =>{
+//                console.log('cool',res);
+//                this.setState({
+//                  stocks: res
+//                })
+//              })
+//            }, 3000);
+//          } catch(e) {
+//            console.log('eeeee',e);
+//          }
+//    }
+// ------------------------------------------------------------
