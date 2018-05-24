@@ -39,6 +39,7 @@ export default class StockContainer extends React.Component{
               );
           console.log('stock',stock);
           return <StockShow stock={stock} />}} />
+
         <Route exact path="/" render={routerProps => {return <StockList history={routerProps.history} stocks={this.state.stocks} />}} />
 
         </div>

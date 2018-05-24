@@ -1,6 +1,42 @@
 .App {
   text-align: center;
+  text-transform: uppercase;
+  font-size: 50px;
+  padding-bottom: 30px;
+  padding-top: 20px
+
 }
+
+.showName{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 50px;
+  padding-bottom: 20px;
+  padding-top: 20px
+}
+
+.symbol{
+  font-size: 30px;
+  color: #708090
+
+}
+
+.center-chart{
+  margin: auto;
+  width: 50%;
+  max-width: 100% 
+}
+
+.center-button{
+  padding-top: 20px;
+  margin: auto;
+  width: 5%;;
+}
+
+.center-stockview{
+  text-align: center;
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

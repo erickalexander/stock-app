@@ -7,6 +7,11 @@ const StockList = (props) =>
 
   return(
     <div>
+    <h1 className="App">Stock Market App</h1>
+
+    <div className="ui center grid container">
+    <div className="column">
+    <div className="ui cards">
     {
       props.stocks ? props.stocks.map(st =>{
         console.log('st',st);
@@ -23,19 +28,29 @@ const StockList = (props) =>
         console.log('currentd',currentDate);
         //-----------------------------------
         return (
-          <div>
-          <h1>Stock Market App</h1>
-          <h1>{symbol}</h1>
-          <h2>Current Day: {currentDate}</h2>
-          <h2>Open: {openPrice}</h2>
-          <h2>Close: {closePrice}</h2>
-          <h2>Volume: {volume}</h2>
-          <Link to={`/stock/${st["Meta Data"]["2. Symbol"]}`}>More Info</Link>
+
+            <div className="card">
+            <div className="content">
+                  <div className="header"><h1>{symbol}</h1></div>
+                  <div className="description">
+                    <h3>Current Day: {currentDate}</h3>
+                    <h3>Open: {openPrice}</h3>
+                    <h3>Close: {closePrice}</h3>
+                    <h3>Volume: {volume}</h3>
+                  </div>
+            </div>
+            <div className="ui bottom attached button">
+                  <Link class="ui secondary button" to={`/stock/${st["Meta Data"]["2. Symbol"]}`}>More Info</Link>
+            </div>
+
+
           </div>
         )
       }):null
     }
-
+      </div>
+    </div>
+    </div>
     </div>
   )
 }
