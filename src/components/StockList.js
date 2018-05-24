@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const StockList = (props) =>
 {
@@ -15,6 +16,7 @@ const StockList = (props) =>
         let lastPrice = st["Time Series (Daily)"]
         let openPrice = lastPrice[currentDate]["1. open"]
         let closePrice = lastPrice[currentDate]["4. close"]
+        let volume = lastPrice[currentDate]["5. volume"]
         // ----- debugging ------------------
         console.log('ccc',);
         console.log('jjj', symbol);
@@ -22,10 +24,13 @@ const StockList = (props) =>
         //-----------------------------------
         return (
           <div>
+          <h1>Stock Market App</h1>
           <h1>{symbol}</h1>
           <h2>Current Day: {currentDate}</h2>
           <h2>Open: {openPrice}</h2>
           <h2>Close: {closePrice}</h2>
+          <h2>Volume: {volume}</h2>
+          <Link to={`/stock/${st["Meta Data"]["2. Symbol"]}`}>More Info</Link>
           </div>
         )
       }):null

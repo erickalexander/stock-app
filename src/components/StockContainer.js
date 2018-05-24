@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Adapter from '../api/Adapter'
 import StockList from './StockList'
+import StockShow from './StockShow'
+import { Route } from 'react-router-dom'
 export default class StockContainer extends React.Component{
   constructor(props){
     super(props);
@@ -21,12 +23,24 @@ export default class StockContainer extends React.Component{
 
   }
 
+
+
     render(){
       console.log("REDERING.........",this.state.stocks);
 
+
+
       return(
         <div>
-        <StockList stocks={this.state.stocks} />
+        <Route exact path="/stock/:id" render = { ({match})=> {
+          console.log('hhh',match.params.id);
+          const stock = this.state.stocks.find(
+                st => st["Meta Data"]["2. Symbol"] === match.params.id
+              );
+          console.log('stock',stock);
+          return <StockShow stock={stock} />}} />
+        <Route exact path="/" render={routerProps => {return <StockList history={routerProps.history} stocks={this.state.stocks} />}} />
+
         </div>
       )
     }
