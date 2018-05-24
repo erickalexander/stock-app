@@ -4,26 +4,31 @@ import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsiv
 
 const StockShow = (props) =>
 {
+    function data(p){
+      console.log('ppp',p);
+      const finObj = p["Time Series (Daily)"]
+      const rows = []
+      for (var key in finObj){
+      if (finObj.hasOwnProperty(key)){
+        let finData = finObj[key]
+        let open = parseFloat(finData['1. open'])
+        let close = parseFloat(finData['4. close'])
+        let volume = parseFloat(finData['5. volume'])
+        console.log('v',volume);
+        rows.push({
+          date: key,
+          open,
+          close,
+          volume
+        })
+      }
+    }
+    return rows
+
+    }
 
     console.log('props111',props.stock);
-    const finObj = props.stock["Time Series (Daily)"]
-    const rows = []
-    for (var key in finObj){
-    if (finObj.hasOwnProperty(key)){
-      let finData = finObj[key]
-      let open = parseFloat(finData['1. open'])
-      let close = parseFloat(finData['4. close'])
-      let volume = parseFloat(finData['5. volume'])
-      console.log('v',volume);
-      rows.push({
-        date: key,
-        open,
-        close,
-        volume
-      })
-    }
-  }
-  console.log('rowwwwww',rows);
+
 
     return(
       props.stock ?
@@ -42,7 +47,7 @@ const StockShow = (props) =>
       </div>
       <div className="center-chart">
       <ResponsiveContainer width='100%' aspect={4.0/3.0}>
-      <LineChart width={600} height={300} data={rows.reverse()}
+      <LineChart width={600} height={300} data={data(props.stock).reverse()}
                 margin={{top: 5, right: 30, left: 20, bottom: 5}}>
            <XAxis dataKey="date"/>
            <YAxis/>
