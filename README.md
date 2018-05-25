@@ -1,6 +1,8 @@
 # Stock Market App
 Using the [Alpha Vantage][https://www.alphavantage.co/] Stock API, built a dashboard that displays five stocks. The homepage displays minimal data, once you click on each stock you get a view page with more information on the performance in the past 5 days.
 
+* Live Demo: https://stock-app-2018.herokuapp.com/
+
 ## Getting Started
 1. Fork and Clone this repo
 2. Navigate to the terminal in your directory and run npm install
