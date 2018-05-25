@@ -8,8 +8,8 @@ import "semantic-ui-css/semantic.min.css"
 
 
 ReactDOM.render(
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
   <App />
-  </Router>, 
-  
+  </Router>,
+
   document.getElementById('root'));
