@@ -23,9 +23,8 @@ const StockList = (props) =>
         let closePrice = lastPrice[currentDate]["4. close"]
         let volume = lastPrice[currentDate]["5. volume"]
         // ----- debugging ------------------
-        console.log('ccc',);
-        console.log('jjj', symbol);
-        console.log('currentd',currentDate);
+        console.log('sym', symbol);
+        console.log('current date',currentDate);
         //-----------------------------------
         return (
 

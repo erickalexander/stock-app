@@ -15,7 +15,7 @@ export default class StockContainer extends React.Component{
  // This is the place where we load the data we get from an API, to be used throughout components by setting state
   componentDidMount(){
     Adapter.getStocks().then(res =>{
-      console.log('cool',res);
+      console.log('API Response',res);
       this.setState({
         stocks: res
       })
@@ -33,7 +33,7 @@ export default class StockContainer extends React.Component{
       return(
         <div>
         <Route exact path="/stock/:id" render = { ({match})=> {
-          console.log('hhh',match.params.id);
+          console.log('stock symbol',match.params.id);
           const stock = this.state.stocks.find(
                 st => st["Meta Data"]["2. Symbol"] === match.params.id
               );
