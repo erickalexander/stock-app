@@ -3,6 +3,9 @@ Using the [Alpha Vantage](https://www.alphavantage.co/) Stock API, built a dashb
 
 * Live Demo: https://stock-app-2018.herokuapp.com/
 
+![alt text](https://github.com/erickalexander/stock-app/blob/master/appview.jpg)
+
+
 ## Getting Started
 1. Fork and Clone this repo
 2. Navigate to the terminal in your directory and run npm install
